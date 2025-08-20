@@ -75,7 +75,7 @@ module "watsonx_self_managed_ocp" {
 
 resource "null_resource" "wait_for_cloud_pak_deployer_complete" {
   provisioner "local-exec" {
-    command = "${path.module}/../../scripts/wait_for_cpd_pod.sh"
+    command = "bash ${path.module}/../../scripts/wait_for_cpd_pod.sh"
 
     environment = {
       KUBECONFIG = data.ibm_container_cluster_config.cluster_config.config_file_path
